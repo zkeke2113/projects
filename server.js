@@ -45,7 +45,6 @@ app.post('/test_post',(request,response)=>{
 	response.send('hello_test_post')
 })
 
-
 //响应get请求---jquery
 app.get('/test_jquery_get',(request,response)=>{
 	console.log('有人请求test_jquery_get了',request.query);
@@ -58,6 +57,11 @@ app.post('/test_jquery_post',(request,response)=>{
 	console.log('有人请求test_jquery_post了',request.body);
 	const car = {name:'马自达·阿特兹',price:'25万'}
 	response.send(JSON.stringify(car))
+})
+
+app.get('/test_jsonp',(request,response)=>{
+	const person = [{name:'tom',age:18},{name:'老刘',age:5}]
+	response.send(`demo(${JSON.stringify(person)})`)
 })
 
 //监听
